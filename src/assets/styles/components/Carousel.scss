@@ -1,0 +1,18 @@
+.carousel {
+    width: 100%;
+    overflow: scroll;
+    padding: 30px;
+    position: relative;
+    scrollbar-width: none;
+}
+
+.carousel__container {
+    transition: 450ms -webkit-transform;
+    transition: 450ms transform;
+    transition: 450ms transform, 450ms -webkit-transform;
+    font-size: 0;
+    /**Para que los elementos se vayan corridos*/
+    white-space: nowrap;
+    margin: 70px 0px;
+    padding-bottom: 10px;
+}
