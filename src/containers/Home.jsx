@@ -19,8 +19,8 @@ const Home = () => {
     
 
     return (
-        <div className="App">
-            <Header/>
+        <>
+            
             <Search/>
             {
                 videos.mylist.length > 0 &&
@@ -48,10 +48,8 @@ const Home = () => {
                         )
                     }                
                     </Carousel>
-            </Categories>
-            
-            <Footer/>
-       </div>
+            </Categories>                        
+       </>
     )
 }
 
