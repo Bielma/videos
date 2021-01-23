@@ -1,6 +1,6 @@
 import React from 'react'
 import '../assets/styles/components/CarouselItem.scss';
-
+import PropTypes from 'prop-types';
 const CarouselItem = ({cover, title, year, contenRating, duration}) => {
     return (
         <div className="carousel-item">
@@ -19,4 +19,12 @@ const CarouselItem = ({cover, title, year, contenRating, duration}) => {
     )
 }
 
+CarouselItem.propTypes = {
+    cover: PropTypes.string,
+    title: PropTypes.string,
+    year: PropTypes.number,
+    contenRating: PropTypes.string,
+    duration: PropTypes.number ,
+  };
+  
 export default CarouselItem;
