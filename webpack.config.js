@@ -40,7 +40,11 @@ module.exports = {
                     options: { name: 'assets/[hash].[ext]' },
                 }],
             },
+
         ],
+    },
+    devServer: {
+        historyApiFallback: true,
     },
     plugins: [
         new HtmlWebpackPlugin({

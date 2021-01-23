@@ -1,0 +1,50 @@
+.notfound {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.notfound div {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.notfound div h2,
+.notfound div p {
+    color: white;
+    margin: 0px;
+}
+
+.notfound h2 {
+    font-size: 60px
+}
+
+.notfound p {
+    font-size: 40px
+}
+
+.animated {
+    animation-duration: 2.5s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation-name: pulse;
+    animation-duration: 1s;
+}

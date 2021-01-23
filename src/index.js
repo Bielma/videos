@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM, { unstable_renderSubtreeIntoContainer } from 'react-dom';
-import App from './containers/App'
+import App from './routes/App'
 
 
 

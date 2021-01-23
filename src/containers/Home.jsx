@@ -8,7 +8,8 @@ import Carousel from '../components/Carousel'
 import useInitialState from '../hooks/useInitiialState';
 
 import Footer from '../components/Footer'
-const App = () => {
+
+const Home = () => {
 
     const url = 'http://localhost:3000/initalState';
     const videos = useInitialState(url);
@@ -55,4 +56,4 @@ const App = () => {
 }
 
 
-export default App;
+export default Home;
