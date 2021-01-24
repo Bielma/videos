@@ -1,14 +1,29 @@
 import React from 'react'
+import {connect} from 'react-redux';
 import '../assets/styles/components/CarouselItem.scss';
 import PropTypes from 'prop-types';
-const CarouselItem = ({cover, title, year, contenRating, duration}) => {
+import {setFavorite} from '../actions';
+
+const CarouselItem = (props) => {
+
+    const {id, cover, title, year, contenRating, duration} = props;
+    const handleSaveFavorite = () =>{
+        props.setFavorite({
+                id,cover, title,year, contenRating, duration
+            })
+    }
+
     return (
         <div className="carousel-item">
                 <img className="carousel-item__img" src={cover} alt="cover"/>
                 <div className="carousel-item__details">
                     <div>
                         <img className= "carousel-item__detail--img" src=" https://raw.githubusercontent.com/teffcode/Platzi-Frontend-Dev/master/assets/play-icon.png" alt="play-icon"></img>
-                        <img className= "carousel-item__detail--img" src=" https://raw.githubusercontent.com/teffcode/Platzi-Frontend-Dev/master/assets/plus-icon.png" alt="logo+"></img>
+                        <img 
+                            className= "carousel-item__detail--img" 
+                            src=" https://raw.githubusercontent.com/teffcode/Platzi-Frontend-Dev/master/assets/plus-icon.png" 
+                            alt="logo+"
+                            onClick={handleSaveFavorite}></img>
                     </div>
                     <p className="carousel-item__details--title">{title}</p>
                     <p className="carousel-item__details--subtitle">
@@ -27,4 +42,8 @@ CarouselItem.propTypes = {
     duration: PropTypes.number ,
   };
   
-export default CarouselItem;
+const mapDispatchToProps =  {
+    setFavorite
+}
+ 
+export default connect(null, mapDispatchToProps)(CarouselItem);
