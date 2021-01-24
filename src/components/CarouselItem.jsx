@@ -6,7 +6,7 @@ import {setFavorite, deleteFavorite} from '../actions';
 
 const CarouselItem = (props) => {
 
-    const {id, cover, title, year, contenRating, duration} = props;
+    const {id, cover, title, year, contenRating, duration, isList} = props;
     const handleSaveFavorite = () =>{
         props.setFavorite({
                 id,cover, title,year, contenRating, duration
@@ -20,17 +20,22 @@ const CarouselItem = (props) => {
                 <img className="carousel-item__img" src={cover} alt="cover"/>
                 <div className="carousel-item__details">
                     <div>
-                        <img className= "carousel-item__detail--img" src=" https://raw.githubusercontent.com/teffcode/Platzi-Frontend-Dev/master/assets/play-icon.png" alt="play-icon"></img>
-                        <img 
-                            className= "carousel-item__detail--img" 
-                            src=" https://raw.githubusercontent.com/teffcode/Platzi-Frontend-Dev/master/assets/plus-icon.png" 
-                            alt="logo+"
-                            onClick={handleSaveFavorite}></img>
+                    <img className= "carousel-item__detail--img" src=" https://raw.githubusercontent.com/teffcode/Platzi-Frontend-Dev/master/assets/play-icon.png" alt="play-icon"></img>
+                        {
+                            isList ?
                             <img 
                             className= "carousel-item__detail--img" 
                             src="https://static.platzi.com/media/public/uploads/remove-icon_a56b8107-2c02-49ed-bead-308031b0dd76.png" 
                             alt="logo+"
-                            onClick={handleDeleteFavorite}></img>
+                            onClick={handleDeleteFavorite}></img> :
+                            <img 
+                            className= "carousel-item__detail--img" 
+                            src=" https://raw.githubusercontent.com/teffcode/Platzi-Frontend-Dev/master/assets/plus-icon.png" 
+                            alt="logo+"
+                            onClick={handleSaveFavorite}></img>
+                        }                                                            
+                        
+                        
                     </div>
                     <p className="carousel-item__details--title">{title}</p>
                     <p className="carousel-item__details--subtitle">
