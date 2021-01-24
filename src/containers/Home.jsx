@@ -1,29 +1,19 @@
-import React, {useState, useEffect} from 'react'
-import Header from '../components/Header'
-import Search from '../components/Search'
+import React, {useState, useEffect} from 'react';
+import {connect} from 'react-redux';
+import Search from '../components/Search';
 import '../assets/styles/App.scss';
 import Categories from '../components/Categories';
 import CarouselItem from '../components/CarouselItem'
 import Carousel from '../components/Carousel'
-import useInitialState from '../hooks/useInitiialState';
-
-import Footer from '../components/Footer'
-
-const Home = () => {
-
-    const url = 'http://localhost:3000/initalState';
-    const videos = useInitialState(url);
 
 
-
-    
-
+const Home = ({myList, trends, originals}) => {
+    console.log(myList);
     return (
-        <>
-            
+        <>            
             <Search/>
             {
-                videos.mylist.length > 0 &&
+                myList.length > 0 &&
                 <Categories title = "Mi lista">                
                     <Carousel>
                         <CarouselItem/>                                
@@ -34,7 +24,7 @@ const Home = () => {
             <Categories title = "Tendencias">                
                     <Carousel   >
                     {
-                        videos.trends.map(item =>
+                        trends.map(item =>
                             <CarouselItem key={item.id}{...item}/>  
                         )
                     }                
@@ -43,7 +33,7 @@ const Home = () => {
             <Categories title = "Originales">                
                     <Carousel   >
                     {
-                        videos.originals.map(item =>
+                        originals.map(item =>
                             <CarouselItem key={item.id}{...item}/>  
                         )
                     }                
@@ -54,4 +44,14 @@ const Home = () => {
 }
 
 
-export default Home;
+const mapStateToProps = state =>{
+    return {
+        myList: state.myList,
+        trends: state.trends,
+        originals: state.originals,
+    };
+
+};
+
+//Conector
+export default connect(mapStateToProps, null)(Home);
