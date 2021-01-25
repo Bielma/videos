@@ -5,16 +5,12 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginRequest } from '../actions';
 import Header from '../components/Header';
+import useForm from '../hooks/useForm';
 
 const Login = (props) => {
-    const [form, setForm] = useState({});
+    const [valies, handleInputChange] = useForm({});
 
-    const handleInput = event =>{
-        setForm({
-            ...form,
-            [event.target.name]:event.target.value,            
-        })
-    }
+    
     const handleSubmit = event =>{        
         event.preventDefault();
         props.loginRequest(form)
@@ -28,8 +24,8 @@ const Login = (props) => {
         <section className="login__container">
             <h2>Inicia sesion</h2>
             <form className="login__form" onSubmit = {handleSubmit}>
-                <input name = "email" className="input" type="text" placeholder="Correo" onChange = {handleInput}/>
-                <input name = "password" className="input" type="text" placeholder="Contraseña"onChange = {handleInput}/>
+                <input name = "email" className="input" type="text" placeholder="Correo" onChange = {handleInputChange}/>
+                <input name = "password" className="input" type="text" placeholder="Contraseña"onChange = {handleInputChange}/>
                 <button className="button">Iniciar Sesion</button>
                 <div className="login__container--rememberMe">
                     <label>

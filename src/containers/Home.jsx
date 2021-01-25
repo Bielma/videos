@@ -10,11 +10,11 @@ import Header from '../components/Header';
 
 const Home = (props) => {
     
-    const {user, myList, trends, originals} = props;
+    const {user, searchItems ,myList, trends, originals} = props;
     const hasUser = Object.keys(user).length > 0;    
     useEffect(() => { 
         if(!hasUser){
-            props.history.push('/login');
+            //props.history.push('/login');
         }
     },[]);
 
@@ -22,6 +22,23 @@ const Home = (props) => {
         <>            
             <Header/>
             <Search isHome />
+
+            {
+                Object.keys(searchItems).length  > 0 &&
+                <Categories title = "Resultados">                
+                    <Carousel>                        
+                    {
+                        
+                            <CarouselItem 
+                                key={searchItems.id}
+                                {...searchItems}                                
+                            />  
+                        
+                    }                    
+                    </Carousel>
+                </Categories>
+            }
+
             {
                 myList.length > 0 &&
                 <Categories title = "Mi lista">                
@@ -65,6 +82,7 @@ const Home = (props) => {
 const mapStateToProps = state =>{
     return {
         user: state.user,
+        searchItems: state.searchItems,
         myList: state.myList,
         trends: state.trends,
         originals: state.originals,

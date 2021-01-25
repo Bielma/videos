@@ -1,6 +1,7 @@
 import { actions } from '../actions';
 
 const reducer = (state, action) => {
+    console.log(action.payload);
     switch (action.type) {
         case actions.setFavorite:
             return {
@@ -35,6 +36,11 @@ const reducer = (state, action) => {
                 playing: state.trends.concat(state.originals).find(item => item.id === Number(action.payload)) || [],
                 //playing: state.trends.find(item => item.id === Number(actions.payload)) ||
                 //  state.originals.find(item => item.id === Number(actions.payload)) || []
+            }
+        case actions.searchRequest:
+            return {
+                ...state,
+                searchItems: state.trends.concat(state.originals).find(item => item.title.toLowerCase().includes(action.payload.toLowerCase())) || [],
             }
         default:
             return state;
