@@ -39,8 +39,8 @@ const Header = (props) => {
                         <p>Perfil</p>
                     </div>
                 <ul>      
-                <li><a >Perfil</a></li>                                                        
-                <li>
+                <li><a >{user.name}</a></li>                                                        
+                <li>                    
                 <Link to="/login" onClick= {handleLogout}>
                     Cerrar Sesión
                 </Link>
