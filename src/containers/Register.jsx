@@ -4,6 +4,7 @@ import '../assets/styles/components/Register.scss';
 import '../assets/styles/App.scss';
 import { Link } from 'react-router-dom';
 import {registerRequest} from '../actions'
+import Header from '../components/Header';
 const Register = (props) => {
     const [form, setForm] = useState({});
 
@@ -22,6 +23,8 @@ const Register = (props) => {
 
 
     return (
+        <>
+        <Header isRegister/>
         <section className='register'>
             <section className='register__container'>
                 <h2>Regístrate</h2>
@@ -32,11 +35,12 @@ const Register = (props) => {
                     <button className='button'>Registrarme</button>
                 </form>
                 <Link to="/login">
+                Iniciar sesion
                 </Link>
-                        Iniciar sesion
+                        
 
                 </section>
-        </section>
+        </section></>
     )
 };
 

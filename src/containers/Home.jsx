@@ -5,6 +5,7 @@ import '../assets/styles/App.scss';
 import Categories from '../components/Categories';
 import CarouselItem from '../components/CarouselItem'
 import Carousel from '../components/Carousel'
+import Header from '../components/Header';
 
 
 const Home = (props) => {
@@ -19,6 +20,7 @@ const Home = (props) => {
 
     return (
         <>            
+            <Header/>
             <Search/>
             {
                 myList.length > 0 &&

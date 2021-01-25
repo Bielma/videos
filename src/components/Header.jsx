@@ -5,25 +5,28 @@ import userIcon from '../assets/static/user-icon.png';
 import {Link} from 'react-router-dom';
 import gravatar from '../utils/gravatar';
 import PropTypes from 'prop-types';
-
 import '../assets/styles/components/Header.scss';
 import { logoutRequest } from '../actions';
+import classNames from 'classnames';
+
 
 const Header = (props) => {
 
-    const {user} = props;
+    const {user, isLogin, isRegister} = props;
     const hasUser = Object.keys(user).length > 0;
 
-    const handleLogout = () =>
-    {   
-        
-        props.logoutRequest({});
-        //props.history.push('/login');
-        
+    const headerClass = classNames('header', {
+        isLogin, 
+        isRegister, 
+    });
 
+    const handleLogout = () =>
+    {           
+        props.logoutRequest({});
+        //props.history.push('/login');    
     }
     return (
-        <header className="header">
+        <header className={headerClass}>
             <Link to="/">
                 <img className="header__img" src={logo} alt="logo-platzi"/> 
             </Link>

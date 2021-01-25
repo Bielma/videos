@@ -4,6 +4,7 @@ import '../assets/styles/App.scss';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginRequest } from '../actions';
+import Header from '../components/Header';
 
 const Login = (props) => {
     const [form, setForm] = useState({});
@@ -21,6 +22,8 @@ const Login = (props) => {
         alert('Welcome back '+ form.email);
     }
     return(  
+       <>
+       <Header isLogin/>
         <section className="login"> 
         <section className="login__container">
             <h2>Inicia sesion</h2>
@@ -52,6 +55,7 @@ const Login = (props) => {
             </section>
         </section>
     </section>
+    </>
     )};
 
 const mapDispathToProps = {
