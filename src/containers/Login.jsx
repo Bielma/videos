@@ -2,10 +2,11 @@ import React,{useState} from 'react'
 import '../assets/styles/components/Login.scss';
 import '../assets/styles/App.scss';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import { loginRequest } from '../actions';
 
-const Login = () => {
-    const [form, setForm] = useState({
-    });
+const Login = (props) => {
+    const [form, setForm] = useState({});
 
     const handleInput = event =>{
         setForm({
@@ -13,9 +14,11 @@ const Login = () => {
             [event.target.name]:event.target.value,            
         })
     }
-    const handleSubmit = event =>{
+    const handleSubmit = event =>{        
         event.preventDefault();
-        console.log(form);
+        props.loginRequest(form)
+        props.history.push('/');
+        alert('Welcome back '+ form.email);
     }
     return(  
         <section className="login"> 
@@ -51,4 +54,8 @@ const Login = () => {
     </section>
     )};
 
-export default Login
+const mapDispathToProps = {
+    loginRequest,
+}; 
+
+export default connect(null, mapDispathToProps)(Login);
