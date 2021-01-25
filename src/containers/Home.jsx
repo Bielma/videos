@@ -7,8 +7,16 @@ import CarouselItem from '../components/CarouselItem'
 import Carousel from '../components/Carousel'
 
 
-const Home = ({myList, trends, originals}) => {
-    console.log(myList);
+const Home = (props) => {
+    
+    const {user, myList, trends, originals} = props;
+    const hasUser = Object.keys(user).length > 0;    
+    useEffect(() => { 
+        if(!hasUser){
+            props.history.push('/login');
+        }
+    },[]);
+
     return (
         <>            
             <Search/>
