@@ -46,7 +46,7 @@ const Login = (props) => {
                 <div>
                     <img src="https://secureservercdn.net/192.169.221.188/7d7.5b1.myftpupload.com/wp-content/uploads/2014/10/Twitter_logo_white.png?time=1597441252" alt="twitter"/> Inicia sesion con Twitter
                 </div>
-                <p className="login__container--register">¿No tienes ninguna cuenta?  
+                <p className="login__container--register">¿No tienes ninguna cuenta? {' '}
                 <Link to="/register">
                     Registrate    
                 </Link>
