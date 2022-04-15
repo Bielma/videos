@@ -1,8 +1,7 @@
-name: Build and Deploy
+name: Buld And Deploy
 on: [push]
 jobs:
   build-and-deploy:
-    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
